@@ -71,8 +71,13 @@
             --color_dic_rgb: 3, 31, 95;
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
         html,
         body {
+            font-size: 10.5px;
             margin: 0;
             padding: 0;
         }
@@ -93,104 +98,11 @@
             position: relative;
         }
 
-        #header-hamburger {
-            padding: 10px;
-            display: inline-block;
-            background: none;
-            border: none;
-            cursor: pointer;
-            position: absolute;
-            top: 18px;
-            left: -10px;
-        }
-
-        #header-hamburger:hover::before {
-            position: absolute;
-            content: '';
-            width: 44px;
-            height: 44px;
-            top: 1px;
-            left: 1px;
-            background-color: var(--color_option_bg);
-            border-radius: 50%
-        }
-
-        #header-hamburger>div {
-            background-image: url(./sp_main.png);
-            width: 26px;
-            height: 26px;
-            position: relative;
-            z-index: 1;
-            background-position: -82px -329px;
-            background-repeat: no-repeat;
-            background-size: 435px 414px;
-        }
-
-        #header-pay {
-            padding: 7px;
-            position: absolute;
-            top: 18px;
-            left: 43px;
-        }
-
-        #header-pay:hover::before {
-            position: absolute;
-            content: '';
-            top: 1px;
-            left: 1px;
-            background-color: var(--color_option_bg);
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-        }
-
-        #header-pay>a {
-            display: block;
-            background-image: url(./sp_main.png);
-            background-size: 435px 414px;
-            background-position: -295px -177px;
-            background-repeat: no-repeat;
-            width: 32px;
-            height: 32px;
-            text-decoration: none;
-            position: relative;
-            z-index: 1;
-        }
-
-        #header-talk {
-            padding: 10px;
-            display: inline-block;
-            background: none;
-            border: none;
-            cursor: pointer;
-            position: absolute;
-            top: 18px;
-            right: 40px;
-        }
-
-        #header-talk:hover::before {
-            position: absolute;
-            content: '';
-            width: 44px;
-            height: 44px;
-            top: 1px;
-            left: 1px;
-            background-color: var(--color_option_bg);
-            border-radius: 50%
-        }
-
-        #header-talk>div {
-            background-image: url(./sp_main.png);
-            width: 26px;
-            height: 26px;
-            position: relative;
-            z-index: 1;
-            background-position: -190px -329px;
-            background-repeat: no-repeat;
-            background-size: 435px 414px;
-        }
-
+        #header-hamburger,
+        #header-pay,
+        #header-talk,
         #header-notice {
+            width: 46px;
             padding: 10px;
             display: inline-block;
             background: none;
@@ -198,9 +110,11 @@
             cursor: pointer;
             position: absolute;
             top: 18px;
-            right: -10px;
         }
 
+        #header-hamburger:hover::before,
+        #header-pay:hover::before,
+        #header-talk:hover::before,
         #header-notice:hover::before {
             position: absolute;
             content: '';
@@ -212,15 +126,79 @@
             border-radius: 50%
         }
 
+        #header-hamburger>div,
+        #header-pay>a,
+        #header-talk>div,
         #header-notice>div {
             background-image: url(./sp_main.png);
+            background-repeat: no-repeat;
+            background-size: 435px 414px;
             width: 26px;
             height: 26px;
             position: relative;
             z-index: 1;
+        }
+
+        #header-hamburger {
+            left: -10px;
+        }
+
+        #header-hamburger>div {
+            background-position: -82px -329px;
+        }
+
+        #header-pay {
+            padding: 7px;
+            left: 43px;
+        }
+
+        #header-pay>a {
+            display: block;
+            background-position: -295px -177px;
+            width: 32px;
+            height: 32px;
+            text-decoration: none;
+        }
+
+        #header-talk {
+            right: 40px;
+        }
+
+        #header-talk>div {
+            background-position: -190px -329px;
+        }
+
+        #header-notice {
+            right: -10px;
+        }
+
+        #header-notice>div {
             background-position: -136px -329px;
-            background-repeat: no-repeat;
-            background-size: 435px 414px;
+        }
+
+        #header-notice-alram {
+            position: absolute;
+            top: 6px;
+            right: 0px;
+            background-color: #f4361e;
+            min-width: 20px;
+            padding: 0px 5px;
+            z-index: 1;
+            color: #fff;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, .04);
+            font-size: 1.1rem;
+            line-height: 18px;
+            font-weight: bold;
+        }
+
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -251,10 +229,17 @@
                     <!-- ::before -->
                     <div></div>
                     <span class="blind">알림</span>
+                    <span id="header-notice-alram">19</span>
                     <!-- ::after -->
                 </button>
             </div>
-            <div id="search"></div>
+            <div id="search">
+                <form action="#">
+                    <label for="search-input" class="blind">검색창</label>
+                    <input id="search-input" type="text">
+                    <button class="blind">검색 버튼</button>
+                </form>
+            </div>
             <div id="nav"></div>
             <div id="main"></div>
         </div>
