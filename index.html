@@ -76,11 +76,14 @@
         }
 
         html,
-        body {
+        body,
+        form {
+            /* user agent stylesheet 초기화 작업 */
             font-size: 10.5px;
             margin: 0;
             padding: 0;
         }
+
 
         #wrap {
             text-align: center;
@@ -88,14 +91,17 @@
 
         #wrap-center {
             width: 1280px;
-            height: 2000px;
-            background-color: yellow;
             display: inline-block;
+        }
+
+        #main {
+            height: 2000px;
         }
 
         #header {
             text-align: left;
             position: relative;
+            height: 70px;
         }
 
         #header-hamburger,
@@ -104,7 +110,7 @@
         #header-notice {
             width: 46px;
             padding: 10px;
-            display: inline-block;
+            display: block;
             background: none;
             border: none;
             cursor: pointer;
@@ -233,11 +239,106 @@
                     <!-- ::after -->
                 </button>
             </div>
+            <style>
+                #search>form {
+                    display: inline-block;
+                    width: 708px;
+                    height: 60px;
+                    border: 1px solid #03c75a;
+                    border-radius: 33px;
+                    text-align: left;
+                }
+
+                #search-svg {
+                    display: inline-block;
+                    width: 68px;
+                    height: 100%;
+                    margin-right: 12px;
+                    /* padding: 17px 17px 17px 27px; */
+                    padding-left: 10px;
+                }
+
+                #search-svg svg {
+                    fill: #03c75a;
+                    width: 24px;
+                    height: 24px;
+                }
+
+                #search-right {
+                    display: inline-block;
+                }
+
+                #search-input {
+                    width: 480px;
+                    height: 100%;
+                    padding: 17px 0px;
+                    border: none;
+                    outline: none;
+                    font-size: 2rem;
+                    line-height: 24px;
+                    font-weight: bold;
+                    color: var(--color_search);
+                }
+
+                #search-right>button {
+                    border: none;
+                    background: none;
+                    cursor: pointer;
+                }
+
+                #search-keyboard::before {
+                    content: "";
+                    display: block;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.2b96eea2.png);
+                    background-size: 434px 414px;
+                    background-position: -226px -254px;
+                    background-repeat: no-repeat;
+                    width: 24px;
+                    height: 14px;
+                }
+
+                #search-recent::before {
+                    content: "";
+                    display: block;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.2b96eea2.png);
+                    background-size: 434px 414px;
+                    background-position: -133px -201px;
+                    background-repeat: no-repeat;
+                    width: 10px;
+                    height: 6px;
+                }
+
+                #search-button::before {
+                    content: "";
+                    display: block;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.2b96eea2.png);
+                    background-size: 434px 414px;
+                    background-position: -295px -329px;
+                    background-repeat: no-repeat;
+                    width: 25px;
+                    height: 25px;
+                }
+            </style>
             <div id="search">
                 <form action="#">
+                    <a id="search-svg" href="#">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.273 12.845 7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"></path>
+                        </svg>
+                    </a>
                     <label for="search-input" class="blind">검색창</label>
-                    <input id="search-input" type="text">
-                    <button class="blind">검색 버튼</button>
+                    <input id="search-input" type="text" placeholder="검색어를 입력해 주세요.">
+                    <div id="search-right">
+                        <button id="search-keyboard">
+                            <span class="blind">입력도구</span>
+                        </button>
+                        <button id="search-recent">
+                            <span class="blind">자동완성</span>
+                        </button>
+                        <button id="search-button">
+                            <span class="blind">검색버튼</span>
+                        </button>
+                    </div>
                 </form>
             </div>
             <div id="nav"></div>
