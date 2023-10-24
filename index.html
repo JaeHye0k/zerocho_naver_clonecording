@@ -76,10 +76,18 @@
         }
 
         html,
-        body,
-        form {
+        body {
             /* user agent stylesheet 초기화 작업 */
             font-size: 10.5px;
+            line-height: 10.5px;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
+            letter-spacing: -0.4px;
+        }
+
+        form,
+        ul {
             margin: 0;
             padding: 0;
         }
@@ -241,7 +249,7 @@
             </div>
             <style>
                 #search>form {
-                    display: inline-block;
+                    display: inline-flex;
                     width: 708px;
                     height: 60px;
                     border: 1px solid #03c75a;
@@ -249,13 +257,38 @@
                     text-align: left;
                 }
 
+                #search>form:hover {
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12)
+                }
+
                 #search-svg {
-                    display: inline-block;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
                     width: 68px;
                     height: 100%;
                     margin-right: 12px;
                     /* padding: 17px 17px 17px 27px; */
                     padding-left: 10px;
+                    position: relative;
+                }
+
+                #search-svg::after {
+                    display: none;
+                }
+
+                #search>form:focus-within #search-svg::after {
+                    content: '';
+                    width: 1px;
+                    height: 20px;
+                    background-color: #e4e4e4;
+                    display: inline-block;
+                    position: absolute;
+                    right: 0;
+                }
+
+                #search-svg:focus::after {
+                    background-color: #e4e4e4;
                 }
 
                 #search-svg svg {
@@ -265,7 +298,11 @@
                 }
 
                 #search-right {
-                    display: inline-block;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: stretch;
+                    /* flex 값이 없고 width값을 가진 형제 요소들을 존중해 주면서 flex 박스의 남은 공간을 전부 차지하겠다.*/
+                    flex: 1;
                 }
 
                 #search-input {
@@ -280,9 +317,18 @@
                     color: var(--color_search);
                 }
 
+                #search-input::placeholder {
+                    color: transparent;
+                }
+
+                #search-input:focus::placeholder {
+                    font-weight: normal;
+                    color: #e4e4e4;
+                }
+
                 #search-right>button {
                     border: none;
-                    background: none;
+                    background: transparent;
                     cursor: pointer;
                 }
 
@@ -297,6 +343,10 @@
                     height: 14px;
                 }
 
+                #search-keyboard:hover::before {
+                    filter: brightness(0.7);
+                }
+
                 #search-recent::before {
                     content: "";
                     display: block;
@@ -306,6 +356,10 @@
                     background-repeat: no-repeat;
                     width: 10px;
                     height: 6px;
+                }
+
+                #search-button {
+                    padding: 17px 27px 16px 10px;
                 }
 
                 #search-button::before {
@@ -341,7 +395,193 @@
                     </div>
                 </form>
             </div>
-            <div id="nav"></div>
+            <style>
+                #nav {
+                    margin: 12px;
+                }
+
+                #nav ul {
+                    display: flex;
+                    list-style-type: none;
+                    justify-content: center;
+                    font-size: 1.4rem;
+                    line-height: 20px;
+                }
+
+                #nav a {
+                    text-decoration: none;
+                }
+
+                #nav a:visited {
+                    color: black;
+                }
+
+                #nav a div {
+                    width: 48px;
+                    height: 48px;
+                    position: relative;
+                    margin: 0 auto;
+                }
+
+                #nav a div::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: -2px;
+                    left: -3px;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.2b96eea2.png);
+                    background-size: 434px 414px;
+                    background-position: 0px -128px;
+                    background-repeat: no-repeat;
+                    width: 54px;
+                    height: 54px;
+                }
+
+                #nav a div::after {
+                    content: '';
+                    z-index: 1;
+                    position: relative;
+                    margin: 2px;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.2b96eea2.png);
+                    background-size: 434px 414px;
+                    background-repeat: no-repeat;
+                    width: 44px;
+                    height: 44px;
+                    display: inline-block;
+                }
+
+                #nav li {
+                    margin-left: 4px;
+                    width: 64px;
+                }
+
+                #nav li span {
+                    display: inline-block;
+                    margin-top: 7px;
+                }
+
+                #nav li:nth-of-type(1) {
+                    margin-left: 0;
+                }
+
+                #nav li:nth-of-type(1) a div::after {
+                    background-position: -250px -90px;
+                }
+
+                #nav li:nth-of-type(2) a div::after {
+                    background-position: -250px 0px;
+                }
+
+                #nav li:nth-of-type(3) a div::after {
+                    background-position: -201px -98px;
+                }
+
+                #nav li:nth-of-type(4) a div::after {
+                    background-position: -90px -209px;
+                }
+
+                #nav li:nth-of-type(5) a div::after {
+                    background-position: 0px -209px;
+                }
+
+                #nav li:nth-of-type(6) a div::after {
+                    background-position: -180px -209px;
+                }
+
+                #nav li:nth-of-type(7) a div::after {
+                    background-position: -45px -209px;
+                }
+
+                #nav li:nth-of-type(8) a div::after {
+                    width: 48px;
+                    height: 48px;
+                    margin: 0;
+                    /* marin을 주면 after의 이미지와 before의 이미지 사이에 미세한 margin이 생겨서 after의 이미지가 끊겨보임.*/
+                    background-position: -201px 0px;
+                }
+
+                #nav li:nth-of-type(9) a div::after {
+                    background-position: -225px -209px;
+                }
+
+                #nav li:nth-of-type(10) a div::after {
+                    background-position: -250px -135px;
+                }
+            </style>
+            <div id="nav">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div></div>
+                            <span>메일</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div></div>
+                            <span>카페</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div></div>
+                            <span>블로그</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div></div>
+                            <span>쇼핑</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div></div>
+                            <span>뉴스</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div></div>
+                            <span>증권</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div></div>
+                            <span>부동산</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div></div>
+                            <span>지도</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div></div>
+                            <span>웹툰</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div></div>
+                            <span class="blind">더보기</span>
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
             <div id="main"></div>
         </div>
     </div>
