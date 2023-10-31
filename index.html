@@ -724,6 +724,7 @@
           }
           #main-newsstand .bold {
             color: var(--color_title);
+            font-weight: 800;
           }
           #sub-header {
             margin: 0 20px;
@@ -758,6 +759,7 @@
           #main-newsstand-animation {
             position: relative;
             padding-left: 25px;
+            height: 26px;
           }
           #main-newsstand-animation::before {
             content: "";
@@ -796,6 +798,21 @@
           #sub-header .right {
             display: flex;
           }
+          #sub-header .right a:last-of-type {
+            position: relative;
+            padding-left: 25px;
+          }
+          #sub-header .right a:last-of-type::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 7px;
+            left: 12px;
+            width: 1px;
+            height: 12px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+          }
           #main-newsstand-grid {
             display: grid;
             justify-content: center;
@@ -820,6 +837,23 @@
           #main-newsstand footer {
             padding: 10px 0 11px;
             border-top: 1px solid var(--color_border_in);
+            line-height: 34px;
+          }
+          #main-newsstand footer > div {
+            color: #606060;
+            color: var(--color_caption2);
+            display: inline-block;
+            min-width: 156px;
+            padding: 0 16px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            font-size: 1.3rem;
+            line-height: 35px;
+            font-weight: 600;
+            vertical-align: top;
+          }
+          #main-newsstand footer #news {
+            color: var(--color_news);
           }
           #main-shopping {
             height: 560px;
@@ -882,7 +916,7 @@
                   </div>
                   <div class="right">
                     <a href="#">뉴스스탠드</a>
-                    <a href="#">뉴스홈</a>
+                    <a href="#" class="bold">뉴스홈</a>
                   </div>
                 </div>
                 <div id="main-newsstand-grid">
@@ -913,15 +947,15 @@
                 </div>
               </div>
               <footer>
+                <button><span class="blind">이전</span></button>
                 <div>
-                  <button><span class="blind">이전</span></button>
-                  <div>언론사 더보기 1페이지전체/4</div>
-                  <button><span class="blind">다음</span></button>
+                  <span id="news">언론사</span> 더보기
+                  <span> 1<span class="blind">페이지</span> </span>
+                  <span> /4<span class="blind">전체</span> </span>
                 </div>
-                <div>
-                  <button><span class="blind">목록보기</span></button>
-                  <button><span class="blind">격자보기</span></button>
-                </div>
+                <button><span class="blind">다음</span></button>
+                <button><span class="blind">목록보기</span></button>
+                <button><span class="blind">격자보기</span></button>
               </footer>
             </section>
             <section id="main-shopping"></section>
