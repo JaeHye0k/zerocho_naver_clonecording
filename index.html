@@ -666,33 +666,35 @@
             display: flex;
             flex-flow: column;
           }
-          #main-newsstand-top {
+          .top {
             flex: 1;
           }
-          #main-newsstand header {
+          .top header {
             padding: 18px 20px 17px;
             display: flex;
             line-height: 1.7rem;
             height: 58px;
             align-items: center;
           }
-          #main-newsstand header ul {
+          .top header ul {
             list-style: none;
             font-size: 1.6rem;
             line-height: 23px;
             display: flex;
           }
 
-          #main-newsstand header ul li {
+          .top header ul li {
             display: inline-block;
             position: relative;
             padding-left: 26px;
           }
-          #main-newsstand header ul li:nth-of-type(1),
-          #main-newsstand header ul li:nth-of-type(2) {
+          .top header ul li:nth-of-type(1) {
             padding-left: 0;
           }
-          #main-newsstand .dot::before {
+          #main-newsstand .top header ul li:nth-of-type(2){
+            padding-left: 0;
+          }
+          .dot::before {
             content: "";
             display: inline-block;
             width: 4px;
@@ -702,11 +704,11 @@
             vertical-align: top;
             margin: 9px 7px;
           }
-          #main-newsstand header ul li:hover {
+          .top header ul li:hover {
             text-decoration: underline;
           }
 
-          #main-newsstand .slash::before {
+          .slash::before {
             content: "";
             width: 1px;
             height: 15px;
@@ -718,11 +720,11 @@
             transform: skewX(-15deg);
           }
 
-          #main-newsstand header ul li a {
+          .top header ul li a {
             color: rgba(8, 8, 8, 0.5);
             font-weight: 800;
           }
-          #main-newsstand .bold {
+          .top .bold {
             color: var(--color_title);
             font-weight: 800;
           }
@@ -894,6 +896,14 @@
             width: 20px;
             height: 20px;
           }
+          #main-newsstand footer .list:hover::before {
+            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.2b96eea2.png);
+            background-size: 434px 414px;
+            background-position: -236px -356px;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+          }
           #main-newsstand footer .grid::before {
             content: "";
             display: block;
@@ -907,8 +917,41 @@
           #main-newsstand footer .grid:hover::before {
             background-position: -389px -126px;
           }
+
           #main-newsstand footer #news {
             color: var(--color_news);
+          }
+          #main-newsstand footer > button {
+            position: relative;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--color_button_border);
+            background-color: var(--color_button1_bg);
+            cursor: pointer;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+          }
+          #main-newsstand footer > button:hover {
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+          }
+          #main-newsstand footer > button::before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.2b96eea2.png);
+            background-size: 434px 414px;
+            background-position: -165px -402px;
+            background-repeat: no-repeat;
+            width: 10px;
+            height: 12px;
+            margin: auto;
+          }
+          #main-newsstand footer > button:first-of-type::before {
+            transform: rotate(180deg);
           }
           #main-shopping {
             height: 560px;
@@ -951,7 +994,7 @@
           <div id="main-left">
             <aside id="main-left-ad"></aside>
             <section id="main-newsstand">
-              <div id="main-newsstand-top">
+              <div class="top">
                 <header>
                   <ul>
                     <li><a href="#" class="bold">뉴스스탠드</a></li>
@@ -1016,7 +1059,17 @@
                 </div>
               </footer>
             </section>
-            <section id="main-shopping"></section>
+            <section id="main-shopping">
+              <div class="top">
+                <header>
+                  <ul>
+                    <li><a href="#" class="bold">쇼핑</a></li>
+                    <li><a href="#" class="slash">맨즈</a></li>
+                    <li><a href="#" class="slash">원쁠딜</a></li>
+                    <li><a href="#" class="slash">쇼핑라이브</a></li>
+                  </ul>
+                </header>
+            </section>
             <section id="main-webtoon"></section>
           </div>
           <div id="main-right">
