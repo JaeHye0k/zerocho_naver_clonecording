@@ -834,7 +834,7 @@ section[id^="main"] {
 #main-shopping {
   height: 560px;
 }
-#main-shopping .left {
+#main-shopping .sub-header .left {
   display: flex;
   width: 668px;
   padding: 15px 20px 14px;
@@ -849,6 +849,61 @@ section[id^="main"] {
 }
 #main-shopping footer #shopping-itme {
   color: #9858f5;
+}
+#main-shopping #todayPick_title {
+  padding-right: 19px;
+  position: relative;
+}
+#main-shopping #todayPick_title::after {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: var(--color_dot_divider);
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+#main-shopping .sub-header button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(211, 213, 215, 0.8);
+}
+#main-shopping .sub-header button:first-of-type {
+  border-radius: 4px 0 0 4px; /*좌 상 -> 우 상 -> 우 하 -> 좌 하*/
+}
+#main-shopping .sub-header button:last-of-type {
+  border-radius: 0 4px 4px 0;
+}
+#shopping-content {
+  display: flex;
+  width: 830px;
+  height: 394px;
+  padding: 18px 20px 1px;
+}
+#shopping-content .left {
+  display: grid;
+  width: 522px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  margin-right: 20px;
+  gap: 8px;
+}
+#shopping-content .left > div {
+  height: 100%;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+#shopping-content .left > div:nth-child(n + 6) {
+  padding-bottom: 24px;
+}
+#shopping-content .left > div img {
+  width: 98px;
+  height: 126px;
+}
+#todayPick_mall_image {
+  padding-top: 4px;
 }
 #main-webtoon {
   height: 1375px;
