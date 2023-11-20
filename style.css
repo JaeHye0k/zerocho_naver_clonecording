@@ -844,7 +844,7 @@ section[id^="main"] {
   padding: 15px 20px 14px;
   line-height: 21px;
 }
-#main-shopping .right {
+#main-shopping .sub-header .right {
   margin-left: auto;
   padding: 10px 0;
 }
@@ -932,7 +932,7 @@ section[id^="main"] {
   height: 394px;
   padding: 18px 20px 1px;
 }
-#shopping-content .left {
+#shopping-content > .left {
   display: grid;
   width: 522px;
   grid-template-columns: repeat(5, 1fr);
@@ -940,17 +940,56 @@ section[id^="main"] {
   margin-right: 20px;
   gap: 8px;
 }
-#shopping-content .left > div {
+#shopping-content > .left > div {
   height: 100%;
   border: 1px solid black;
   border-radius: 4px;
 }
-#shopping-content .left > div:nth-child(n + 6) {
+#shopping-content > .left > div:nth-child(n + 6) {
   padding-bottom: 24px;
 }
-#shopping-content .left > div img {
+#shopping-content > .left > div img {
   width: 98px;
   height: 126px;
+}
+#shopping-content > .right {
+  border: 1px solid black;
+  width: 248px;
+}
+#shopping-content > .right > .top {
+  border: inherit;
+  height: 88px;
+}
+#shopping-content > .right > .middle {
+  border: inherit;
+  height: 74px;
+  margin-top: 12px;
+  padding: 9px;
+  border-radius: 4px;
+}
+#shopping-content > .right > .bottom {
+  display: block;
+  border: inherit;
+  height: 173px;
+  margin-top: 12px;
+}
+#shopping-content > .right > .bottom > .bottom-img {
+  width: 248px;
+  height: 146px;
+  aspect-ratio: auto 248 / 146;
+}
+#shopping-content > .right > .bottom > .bottom-text {
+  margin-top: 8px;
+  height: 19px;
+  font-size: 1.3rem;
+  line-height: 19px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#shopping-content > .right > .bottom > .bottom-text:hover {
+  text-decoration: underline;
 }
 #todayPick_mall_image {
   padding-top: 4px;
