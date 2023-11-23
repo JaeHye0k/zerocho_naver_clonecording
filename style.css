@@ -88,6 +88,10 @@ a {
   text-decoration: none;
   color: #000;
 }
+.hover-zoom-in:hover {
+  transition-duration: 0.3s;
+  transform: scale(1.05);
+}
 #wrap {
   text-align: center;
 }
@@ -428,7 +432,7 @@ a {
   width: 48px;
   height: 48px;
   margin: 0;
-  /* marin을 주면 after의 이미지와 before의 이미지 사이에 미세한 margin이 생겨서 after의 이미지가 끊겨보임.*/
+  /* marin을 0으로 해주지 않으면 after의 이미지와 before의 이미지 사이에 미세한 margin이 생겨서 after의 이미지가 끊겨보임.*/
   background-position: -201px 0px;
 }
 
@@ -941,7 +945,6 @@ section[id^="main"] {
 }
 #shopping-content > .left > div {
   height: 100%;
-  border: 1px solid black;
   border-radius: 4px;
 }
 #shopping-content > .left > div:nth-child(n + 6) {
@@ -950,12 +953,13 @@ section[id^="main"] {
 #shopping-content > .left > div img {
   width: 98px;
   height: 126px;
+  border-radius: 4px;
+  overflow: hidden;
 }
 #shopping-content > .right {
   width: 248px;
 }
-#shopping-content .right > div,
-#shopping-content .right > a {
+#shopping-content .right > div {
   border-radius: 4px;
   background-color: rgba(245, 248, 251, 0.6);
 }
@@ -964,41 +968,17 @@ section[id^="main"] {
   height: 88px;
   padding: 9px 12px 4px;
 }
+#shopping-content > .right > .top > .line {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+}
 #shopping-content > .right > .middle {
   border: inherit;
   height: 74px;
   margin-top: 12px;
   padding: 9px;
   border-radius: 4px;
-}
-#shopping-content > .right > .bottom {
-  display: block;
-  border: inherit;
-  height: 173px;
-  margin-top: 12px;
-}
-#shopping-content > .right > .bottom > .bottom-img {
-  width: 248px;
-  height: 146px;
-  aspect-ratio: auto 248 / 146;
-}
-#shopping-content > .right > .bottom > .bottom-text {
-  margin-top: 8px;
-  height: 19px;
-  font-size: 1.3rem;
-  line-height: 19px;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-#shopping-content > .right > .bottom > .bottom-text:hover {
-  text-decoration: underline;
-}
-#shopping-content > .right > .top > .line {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 5px;
 }
 .mall-dot {
   display: inline-block;
@@ -1041,7 +1021,7 @@ section[id^="main"] {
   background-color: #fff;
   border: 1px solid rgba(238, 242, 248, 0.8);
 }
-.quick-link-img::before {
+.quick-link-list li .quick-link-img::before {
   content: "";
   position: absolute;
   width: 32px;
@@ -1051,13 +1031,54 @@ section[id^="main"] {
   background-image: url(sp_sub.png);
   background-size: 134px 121px;
   background-repeat: no-repeat;
-  background-position: -34px 0;
   transform: translate(-50%, -50%);
+}
+.quick-link-list li:nth-of-type(1) .quick-link-img::before {
+  background-position: -34px 0;
+}
+.quick-link-list li:nth-of-type(2) .quick-link-img::before {
+  background-position: -68px -34px;
+}
+.quick-link-list li:nth-of-type(3) .quick-link-img::before {
+  background-position: -34px -34px;
+}
+.quick-link-list li:nth-of-type(4) .quick-link-img::before {
+  background-position: -102px -18px;
+  width: 17px;
+  height: 16px;
 }
 .quick-link-text {
   margin-top: 2px;
   font-size: 14px;
   line-height: 20px;
+}
+#shopping-content > .right > .bottom {
+  display: block;
+  border: inherit;
+  height: 173px;
+  margin-top: 12px;
+}
+#shopping-content > .right > .bottom .bottom-img {
+  width: 248px;
+  height: 146px;
+  aspect-ratio: auto 248 / 146;
+  border-radius: 4px;
+}
+#shopping-content > .right > .bottom .bottom-text {
+  margin-top: 8px;
+  height: 19px;
+  font-size: 1.3rem;
+  line-height: 19px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#shopping-content > .right > .bottom .bottom-img-container {
+  overflow: hidden;
+}
+#shopping-content > .right > .bottom .bottom-text:hover {
+  text-decoration: underline;
 }
 #shopping #todayPick_mall_image {
   padding-top: 4px;
