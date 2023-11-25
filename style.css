@@ -88,7 +88,7 @@ a {
   text-decoration: none;
   color: #000;
 }
-.hover-zoom-in:hover {
+.hover-zoom-in:hover img {
   transition-duration: 0.3s;
   transform: scale(1.05);
 }
@@ -99,6 +99,7 @@ a {
 #wrap-center {
   width: 1280px;
   display: inline-block;
+  margin: 0 30px 0;
 }
 
 #main {
@@ -935,26 +936,50 @@ section[id^="main"] {
   height: 394px;
   padding: 18px 20px 1px;
 }
-#shopping-content > .left {
+#shopping-content > .left ul {
   display: grid;
   width: 522px;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, 1fr);
   margin-right: 20px;
-  gap: 8px;
+  column-gap: 8px;
 }
-#shopping-content > .left > div {
+#shopping-content > .left li {
   height: 100%;
-  border-radius: 4px;
+  padding: 0 0 14px 8px;
+  padding-left: 0;
+  float: left;
 }
-#shopping-content > .left > div:nth-child(n + 6) {
+#shopping-content > .left li:hover {
+  text-decoration: underline;
+}
+#shopping-content > .left li:nth-child(n + 6) {
   padding-bottom: 24px;
 }
-#shopping-content > .left > div img {
+#shopping-content > .left .hot-item-img-box {
+  overflow: hidden;
+  border-radius: 4px;
+  width: 98px;
+  height: 126px;
+}
+#shopping-content > .left img {
   width: 98px;
   height: 126px;
   border-radius: 4px;
-  overflow: hidden;
+}
+#shopping-content > .left .hot-item-link {
+  display: block;
+  padding-top: 8px;
+}
+#shopping-content > .left .hot-item-link .hot-item-link-text {
+  line-height: 19px;
+  font-size: 1.3rem;
+  letter-spacing: -0.4px;
+  white-space: nowrap;
+  text-align: left;
+}
+.hot-item-link:hover {
+  text-decoration: underline;
 }
 #shopping-content > .right {
   width: 248px;
